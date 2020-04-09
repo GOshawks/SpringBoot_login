@@ -5,6 +5,9 @@ import com.nahib.login.entity.User;
 import com.nahib.login.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
+
+import java.nio.charset.StandardCharsets;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -18,6 +21,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void insertUser(User user) {
+        String MD5Password = DigestUtils.md5DigestAsHex(user.getPassward().getBytes(StandardCharsets.UTF_8));
+        user.setPassward(MD5Password);
         userMapper.insertUser(user);
     }
 }
