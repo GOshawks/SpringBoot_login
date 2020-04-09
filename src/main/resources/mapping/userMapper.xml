@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射接口，必须为完整的包名加类名 -->
+<mapper namespace="com.nahib.login.dao.UserMapper">
+    <!-- id对应接口中的selectAll函数，resultType为函数的返回值类型 -->
+    <select id="selectUser" resultType="com.nahib.login.entity.User">
+        select * from tab_user where userName = #{userName}
+    </select>
+
+    <insert id="insertUser" parameterType="com.nahib.login.entity.User">
+        insert into tab_user(userName,passward) values (#{userName},#{passward});
+    </insert>
+</mapper>
