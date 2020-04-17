@@ -1,7 +1,6 @@
 package com.nahib.login.service;
 
 import com.nahib.login.entity.User;
-import org.springframework.stereotype.Service;
 
 
 public interface UserService {
